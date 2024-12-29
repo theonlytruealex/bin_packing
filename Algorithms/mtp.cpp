@@ -94,6 +94,9 @@ void mtpRecursive(int items[], int itemCount, int currItem, int binCap, std::vec
         return;
     }
 
+    int bfdSize = bfd(items, itemCount, binCap, currItem, bins);
+    minBins = minBins > bfdSize ? bfdSize : minBins;
+
     for (auto& bin: bins) {
         if (bin + items[currItem] == binCap) {
             bin += items[currItem];
