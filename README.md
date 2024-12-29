@@ -26,4 +26,5 @@ Analysis of multiple algorithms to solve (or approximate) the NP-hard bin packin
 
 ### Sources
 
+https://www.sciencedirect.com/science/article/abs/pii/S0377221716302491
 https://mathopt.be/Slides_LaRoche_Martello.pdf
