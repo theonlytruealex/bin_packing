@@ -18,11 +18,6 @@ int bfd(int items[], int itemCount, int binCap) {
         }
     }
 
-    for (auto bin: binSpaces) {
-        std::cout << 100 - bin << " ";
-    }
-    std::cout << "\n";
-
     return binSpaces.size();
 }
 
