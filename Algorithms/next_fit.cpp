@@ -25,6 +25,7 @@ int main() {
     
     fin >> itemCount >> binCap;
     int items[itemCount], placements[itemCount];
+    bins.reserve(itemCount);
 
     for (int i = 0; i < itemCount; i++) {
         fin >> items[i];
