@@ -2,19 +2,18 @@
 #include <fstream>
 #include <vector>
 
-int nf(int items[], int itemCount, int binCap, std::vector<int>& bins) {
-    int binCount = 1;
-
+int nf(int items[], int itemCount, int binCap, std::vector<int>& bins, int placements[]) {
     bins.push_back(items[0]);
+    placements[0] = 0;
     for (int i = 1; i < itemCount; i++) {
         if (bins.back() + items[i] > binCap) {
             bins.push_back(items[i]);
-            binCount++;
         } else {
             bins.back() += items[i];
         }
+        placements[i] = bins.size() - 1;
     }
-    return binCount;
+    return bins.size();
 }
 
 int main() {
@@ -25,13 +24,21 @@ int main() {
     std::vector<int> bins;
     
     fin >> itemCount >> binCap;
-    int items[itemCount];
+    int items[itemCount], placements[itemCount];
 
     for (int i = 0; i < itemCount; i++) {
         fin >> items[i];
     }
 
-    fout << nf(items, itemCount, binCap, bins);
+    int minCount = nf(items, itemCount, binCap, bins, placements);
+    fout << minCount << "\n";
+    for (int i = 0; i < minCount; i++) {
+        fout << "Bin number " << i << ": ";
+        for (int j = 0; j < itemCount; j++)
+            if (placements[j] == i)
+                fout << items[j] << ", ";
+        fout << "\n";
+    }
 
     fin.close();
     fout.close();
