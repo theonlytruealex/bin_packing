@@ -1,9 +1,29 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <bits/stdc++.h>
 
-int ffd(int items[], int binCap, std::vector<int>& bins) {
+int ffd(int items[], int itemCount, int binCap, std::vector<int>& bins) {
+    int binCount = 1;
+    bool found = false;
 
+    bins.push_back(items[0]);
+    for (int i = 1; i < itemCount; i++) {
+        found = false;
+        for (auto& bin: bins) {
+            if (bin + items[i] <= binCap) {
+                bin += items[i];
+                found = true;
+                break; 
+            }
+        }
+        if (!found) {
+            bins.push_back(items[i]);
+            binCount++;
+        }
+    }
+    
+    return binCount;
 }
 
 int main() {
@@ -19,8 +39,8 @@ int main() {
     for (int i = 0; i < itemCount; i++) {
         fin >> items[i];
     }
-
-    fout << ffd(items, binCap, bins);
+    std::sort(items, items + itemCount, std::greater<int>());
+    fout << ffd(items, itemCount, binCap, bins);
 
     fin.close();
     fout.close();
