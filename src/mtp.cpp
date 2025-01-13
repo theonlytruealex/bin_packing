@@ -151,10 +151,6 @@ int main() {
         cin >> items[i];
     }
     std::sort(items, items + itemCount, std::greater<int>());
-    cout << "Items in sorted order: \n";
-    for (int i = 0; i < itemCount; i++)
-        cout << items[i] <<' ';
-    cout << '\n';
 
     int minCount = mtp(items, itemCount, binCap, bins, placements);
     cout << minCount << "\n";
