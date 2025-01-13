@@ -19,11 +19,4 @@ all: $(EXES)
 
 # Clean rule: remove all executables and object files
 clean:
-<<<<<<< HEAD
-	rm -f $(EXES)
-	rm -r ../out/* || true
-	rm -r ../input/* || true
-	rm -r ../ref/* || true
-=======
 	rm -f $(EXES) *.o
->>>>>>> 4ebe08c (Updates on generate_tests with mtp as greedy gen)

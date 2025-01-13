@@ -1,3 +1,0 @@
-2
-Bin number 0: 8, 1, 
-Bin number 1: 6, 3, 1, 

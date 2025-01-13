@@ -1,8 +1,0 @@
-7
-Bin number 0: 16, 
-Bin number 1: 16, 
-Bin number 2: 14, 
-Bin number 3: 11, 
-Bin number 4: 8, 2, 
-Bin number 5: 7, 2, 1, 
-Bin number 6: 6, 2, 
