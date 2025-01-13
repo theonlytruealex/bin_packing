@@ -4,13 +4,13 @@ import random
 # Define folder paths and bin capacity
 INPUT_FOLDER = "input/"
 REF_FOLDER = "ref/"
-BIN_CAPACITY = 10
+BIN_CAPACITY = 100
 
 # Ensure folders exist
 os.makedirs(INPUT_FOLDER, exist_ok=True)
 os.makedirs(REF_FOLDER, exist_ok=True)
 
-def generate_tests_and_refs(num_tests=2000, num_items_range=(5, 100), weight_range=(1, 20)):
+def generate_tests_and_refs(num_tests=1000, num_items_range=(5, 1000), weight_range=(1, BIN_CAPACITY + 1)):
     for i in range(num_tests):
         # Generate input: number of items and their weights
         num_items = random.randint(*num_items_range)
