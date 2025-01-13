@@ -145,6 +145,7 @@ int main() {
     
     cin >> itemCount >> binCap;
     int items[itemCount], placements[itemCount][2];
+    bins.reserve(itemCount);
 
     for (int i = 0; i < itemCount; i++) {
         cin >> items[i];

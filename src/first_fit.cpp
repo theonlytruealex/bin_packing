@@ -38,6 +38,7 @@ int main() {
     
     cin >> itemCount >> binCap;
     int items[itemCount], placements[itemCount];
+    bins.reserve(itemCount);
 
     for (int i = 0; i < itemCount; i++) {
         cin >> items[i];
