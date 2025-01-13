@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include <vector>
 
 int nf(int items[], int itemCount, int binCap, int placements[]) {
@@ -18,28 +17,23 @@ int nf(int items[], int itemCount, int binCap, int placements[]) {
 }
 
 int main() {
-    std::ifstream fin("Input");
-    std::ofstream fout("outputs/nf.out");
 
     int itemCount, binCap;
     
-    fin >> itemCount >> binCap;
+    std::cin >> itemCount >> binCap;
     int items[itemCount], placements[itemCount];
 
     for (int i = 0; i < itemCount; i++) {
-        fin >> items[i];
+        std::cin >> items[i];
     }
 
     int minCount = nf(items, itemCount, binCap, placements);
-    fout << minCount << "\n";
+    std::cout << minCount << "\n";
     for (int i = 0; i < minCount; i++) {
-        fout << "Bin number " << i << ": ";
+        std::cout << "Bin number " << i << ": ";
         for (int j = 0; j < itemCount; j++)
             if (placements[j] == i)
-                fout << items[j] << ", ";
-        fout << "\n";
+                std::cout << items[j] << ", ";
+        std::cout << "\n";
     }
-
-    fin.close();
-    fout.close();
 }
