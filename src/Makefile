@@ -20,5 +20,6 @@ all: $(EXES)
 # Curăță toate executabilele
 clean:
 	rm -f $(EXES)
-	rm -r ../out/*
-	rm -r ../input/*
+	rm -r ../out/* || true
+	rm -r ../input/* || true
+	rm -r ../ref/* || true
