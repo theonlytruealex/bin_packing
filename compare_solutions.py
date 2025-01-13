@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Directory paths
-REF_DIR = "ref"
+REF_DIR = "out/mtp"
 OUT_DIR = "out"
 EXECUTABLES = ["first_fit", "best_fit", "next_fit", "mtp"]
 

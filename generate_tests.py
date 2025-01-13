@@ -13,8 +13,9 @@ MTP_EXECUTABLE = "src/mtp"
 os.makedirs(INPUT_FOLDER, exist_ok=True)
 os.makedirs(REF_FOLDER, exist_ok=True)
 
-def generate_tests_and_refs(num_tests=1000, num_items_range=(200, 300), weight_range=(1, BIN_CAPACITY)):
+def generate_tests_and_refs(num_tests=1000, num_items_range=(50, 55), weight_range=(1, BIN_CAPACITY)):
     for i in range(num_tests):
+        print(i)
         # Generate input: number of items and their weights
         num_items = random.randint(*num_items_range)
         weights = [random.randint(*weight_range) for _ in range(num_items)]
@@ -25,19 +26,6 @@ def generate_tests_and_refs(num_tests=1000, num_items_range=(200, 300), weight_r
             input_file.write(f"{len(weights)} {BIN_CAPACITY}\n")
             input_file.write(" ".join(map(str, weights)))
 
-        # Generate reference using the mtp executable
-        ref_file_path = f"{REF_FOLDER}/test_{i}.txt"
-        with open(input_file_path, "r") as input_file, open(ref_file_path, "w") as ref_file:
-            try:
-                subprocess.run(
-                    [MTP_EXECUTABLE],
-                    stdin=input_file,
-                    stdout=ref_file,
-                    stderr=subprocess.PIPE,
-                    check=True,
-                )
-            except subprocess.CalledProcessError as e:
-                print(f"Error running {MTP_EXECUTABLE} for {input_file_path}: {e.stderr.decode()}")
 
 # Generate 2000 test cases
-generate_tests_and_refs(num_tests=2000)
+generate_tests_and_refs()
