@@ -32,7 +32,7 @@ int lowerBound(std::vector<int>& bins, int items[], int currItem, int itemCount,
     }
     int fraction = sJ3 - j2 * binCap + sJ2;
 
-    fraction = fraction % binCap == 0 ? fraction / binCap : fraction / binCap + 1;
+    fraction = (fraction % binCap == 0) ? fraction / binCap : fraction / binCap + 1;
     return j1 + j2 + std::max(0, fraction);
 }
 
@@ -51,7 +51,7 @@ int bfd(int items[], int itemCount, int binCap, int currItem, std::vector<int>& 
             binSpaces.insert({remainingSpace, index});
         }
     }
-    for (int i = currItem; i < itemCount; i++) {
+    for (size_t i = currItem; (int)(i) < itemCount; i++) {
         auto bin = binSpaces.lower_bound({items[i], 0});
 
         if (bin == binSpaces.end()) {
@@ -91,14 +91,14 @@ int bfd(int items[], int itemCount, int binCap, int placements[][2]) {
 
 void mtpRecursive(int items[], int placements[][2], int itemCount, int currItem, int binCap, std::vector<int>& bins, int& minBins) {
     if (currItem >= itemCount) {
-        if (bins.size() < minBins) {
+        if (bins.size() < (size_t)minBins) {
             minBins = bins.size();
             for (int i = 0; i < itemCount; i++)
                 placements[i][0] = placements[i][1];
         }
         return;
     }
-    if (bins.size() >= minBins) {
+    if (bins.size() >= (size_t)minBins) {
         return;
     }
     int lowerB = lowerBound(bins, items, currItem, itemCount, binCap);
@@ -113,11 +113,12 @@ void mtpRecursive(int items[], int placements[][2], int itemCount, int currItem,
                 placements[i][0] = placements[i][1];
     }
 
-    for (int i = 0; i < bins.size(); i++) {
+    for (size_t i = 0; i < bins.size(); i++) {
         if (bins[i] + items[currItem] == binCap) {
             bins[i] += items[currItem];
             placements[currItem][1] = i;
             mtpRecursive(items, placements, itemCount, currItem + 1, binCap, bins, minBins);
+            bins[i] -= items[currItem];
             return;
         }
         if (bins[i] + items[currItem] < binCap) {

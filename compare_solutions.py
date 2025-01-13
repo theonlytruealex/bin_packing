@@ -21,31 +21,48 @@ ref_values = []  # List to store reference values (from ref/test_X.txt)
 
 # Iterate over all the test files in the 'ref' directory
 for test_file in os.listdir(REF_DIR):
-    if test_file.endswith(".txt"):  # Only process .txt files
+    if test_file.endswith(".out"):  # Only process .txt files
         # Get the path of the reference file
         ref_file_path = os.path.join(REF_DIR, test_file)
         ref_value = get_bin_count(ref_file_path)  # Get the number of bins from the reference
         if ref_value is not None:
             ref_values.append(ref_value)
 
+
             # Iterate over the output files for each algorithm
             for exe in EXECUTABLES:
-                output_file = os.path.join(OUT_DIR, exe, test_file + ".out")  # Append .out to match the filenames
+                output_file = os.path.join(OUT_DIR, exe, test_file)  # Append .out to match the filenames
+                print(output_file)
                 if os.path.exists(output_file):  # Check if the output file exists
                     output_value = get_bin_count(output_file)  # Get the number of bins used by the algorithm
                     if output_value is not None:
                         results[exe].append(output_value)
 
 # Analyze the performance percentage for each algorithm
-performance = {exe: [] for exe in EXECUTABLES}
+bfd_miss = 0
+ffd_miss = 0
+nf_miss = 0
+performance = {exe: [] for exe in EXECUTABLES[0:4]}
 for exe, values in results.items():
+    if exe != "next_fit":
+        print(exe)
     for i, value in enumerate(values):
         ref_value = ref_values[i]
         if ref_value > 0:  # Avoid division by zero
             percentage_diff = (value - ref_value) / ref_value * 100
+            if percentage_diff > 0 and  exe != "next_fit":
+                print(f"i: {i}, value: {value}, ref value: {ref_value}, perc: {percentage_diff}")
+            if percentage_diff > 0:
+                if exe == "next_fit":
+                    nf_miss += 1
+                elif exe == "best_fit":
+                    bfd_miss += 1
+                else:
+                    ffd_miss += 1
             performance[exe].append(percentage_diff)
 
 # Calculate the best, worst, and middle solutions (percentages)
+print(f"Miss percentage:\nBfd: {bfd_miss / 10.0}%\nFfd: {ffd_miss / 10.0}%\nNf: {nf_miss / 10.0}%")
 best = {}
 worst = {}
 middle = {}

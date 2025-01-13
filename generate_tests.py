@@ -13,7 +13,7 @@ MTP_EXECUTABLE = "src/mtp"
 os.makedirs(INPUT_FOLDER, exist_ok=True)
 os.makedirs(REF_FOLDER, exist_ok=True)
 
-def generate_tests_and_refs(num_tests=1000, num_items_range=(50, 55), weight_range=(1, BIN_CAPACITY)):
+def generate_tests_and_refs(num_tests=1000, num_items_range=(45, 45), weight_range=(1, BIN_CAPACITY)):
     for i in range(num_tests):
         print(i)
         # Generate input: number of items and their weights
