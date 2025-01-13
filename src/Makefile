@@ -1,25 +1,29 @@
-# Detectează toate fișierele .cpp din directorul curent
+# Detect all .cpp files in the current directory
 SRCS = $(wildcard *.cpp)
 
-# Generează lista executabilelor (fără extensie)
+# Generate the list of executables (removes the .cpp extension)
 EXES = $(SRCS:.cpp=)
 
-# Compilatorul
+# Compiler to use
 CXX = g++
 
-# Opțiuni pentru compilator
+# Compiler options
 CXXFLAGS = -Wall -Wextra -O2 -std=c++17
 
-# Regula implicită: compilează toate executabilele
+# Default rule: build all executables
 all: $(EXES)
 
-# Regula pentru crearea fiecărui executabil
+# Rule to create each executable from its corresponding .cpp file
 %: %.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-# Curăță toate executabilele
+# Clean rule: remove all executables and object files
 clean:
+<<<<<<< HEAD
 	rm -f $(EXES)
 	rm -r ../out/* || true
 	rm -r ../input/* || true
 	rm -r ../ref/* || true
+=======
+	rm -f $(EXES) *.o
+>>>>>>> 4ebe08c (Updates on generate_tests with mtp as greedy gen)

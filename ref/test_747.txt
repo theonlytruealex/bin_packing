@@ -1,0 +1,5 @@
+4
+Bin number 0: 15, 
+Bin number 1: 9, 
+Bin number 2: 5, 4, 
+Bin number 3: 2, 

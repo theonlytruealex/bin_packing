@@ -1,0 +1,8 @@
+7
+Bin number 0: 20, 
+Bin number 1: 18, 
+Bin number 2: 15, 
+Bin number 3: 13, 
+Bin number 4: 10, 
+Bin number 5: 5, 5, 
+Bin number 6: 1, 

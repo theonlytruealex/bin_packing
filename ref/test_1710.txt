@@ -1,0 +1,11 @@
+10
+Bin number 0: 18, 
+Bin number 1: 16, 
+Bin number 2: 14, 
+Bin number 3: 12, 
+Bin number 4: 11, 
+Bin number 5: 9, 
+Bin number 6: 8, 2, 
+Bin number 7: 8, 2, 
+Bin number 8: 6, 4, 
+Bin number 9: 3, 

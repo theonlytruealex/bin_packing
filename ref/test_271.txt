@@ -1,0 +1,4 @@
+3
+Bin number 0: 13, 
+Bin number 1: 4, 4, 2, 
+Bin number 2: 1, 1, 

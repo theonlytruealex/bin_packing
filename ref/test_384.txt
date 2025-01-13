@@ -1,0 +1,4 @@
+3
+Bin number 0: 16, 
+Bin number 1: 8, 1, 1, 
+Bin number 2: 3, 
