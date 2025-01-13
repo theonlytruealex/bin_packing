@@ -18,7 +18,7 @@ def generate_tests_and_refs(num_tests=2000, num_items_range=(5, 100), weight_ran
 
         # Write input to file
         with open(f"{INPUT_FOLDER}/test_{i}.txt", "w") as input_file:
-            input_file.write(f"{BIN_CAPACITY}\n")
+            input_file.write(f"{len(weights)} {BIN_CAPACITY}\n")
             input_file.write(" ".join(map(str, weights)))
 
         # Compute reference solution using a greedy approach
