@@ -3,12 +3,13 @@
 START_TIME=$(date +%s)
 
 # Definirea căilor
-INPUT_DIR="input"
+INPUT_DIR="input_time"
 OUTPUT_DIR="out"
-EXECUTABLE="src/mtp"
+EXECUTABLE="src/first_fit"
 
 # Creare directoare de output pentru fiecare executabil
 mkdir -p "$OUTPUT_DIR"
+
 
 exe_name=$(basename "$EXECUTABLE")
 mkdir -p "$OUTPUT_DIR/$exe_name"
@@ -17,7 +18,6 @@ mkdir -p "$OUTPUT_DIR/$exe_name"
 for input_file in "$INPUT_DIR"/*; do
     input_base=$(basename "$input_file")
     
-
     exe_name=$(basename "$EXECUTABLE")
     output_file="$OUTPUT_DIR/$exe_name/$input_base.out"
  

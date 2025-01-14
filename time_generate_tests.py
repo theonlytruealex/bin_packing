@@ -3,7 +3,7 @@ import random
 import subprocess
 
 # Define folder paths and bin capacity
-INPUT_FOLDER = "second_input/"
+INPUT_FOLDER = "input_time/"
 
 BIN_CAPACITY = 500
 MTP_EXECUTABLE = "src/mtp"

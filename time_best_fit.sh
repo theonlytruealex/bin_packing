@@ -3,7 +3,7 @@
 START_TIME=$(date +%s)
 
 # Definirea căilor
-INPUT_DIR="second_input"
+INPUT_DIR="input_time"
 OUTPUT_DIR="out"
 EXECUTABLE="src/best_fit"
 

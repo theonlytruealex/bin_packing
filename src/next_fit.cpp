@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 
 int nf(int items[], int itemCount, int binCap, int placements[]) {
     int currBin = items[0], binCount = 1;
