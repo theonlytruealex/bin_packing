@@ -1,6 +1,15 @@
 # Bin Packing Problem Algorithms
 Analysis of multiple algorithms to solve (or approximate) the NP-hard bin packing problem
 
+## Compilation:
+- use the Makefile ```make``` command
+
+## Testing:
+### Accuracy:
+- use the run_project.py file by tying the command ```python3 run_project.py```
+### Efficiency:
+- use the time_generate_tests.py file by tying the command ```time_generate_tests.py```
+- run each executable separatly: ```./time_next_fit.sh```, ```./time_first_fit.sh```, ```./time_best_fit.sh```
 
 ## Algorithms:
 
